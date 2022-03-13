@@ -8,18 +8,23 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width > 700.0
+        ? 700.0
+        : MediaQuery.of(context).size.width;
+
     return Scaffold(
         body: SafeArea(
       child: Column(
         children: [
           Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.width,
+            width: width,
+            height: width,
+            alignment: Alignment.center,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
                   image: AssetImage("assets/images/welcome.png"),
-                  fit: BoxFit.fill,
+                  fit: BoxFit.cover,
                   alignment: Alignment.center),
             ),
           ),
