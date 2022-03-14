@@ -163,7 +163,7 @@ class _AuthPageState extends State<AuthPage> {
               ),
               onChanged: (String value) {
                 setState(() {
-                  _email = value;
+                  _name = value;
                 });
               },
             ),
