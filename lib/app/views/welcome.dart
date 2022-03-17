@@ -30,7 +30,7 @@ class WelcomePage extends StatelessWidget {
           ),
           const Spacer(flex: 3),
           Text(
-            "Welcome to $appName",
+            "Welcome to $kAppName",
             textAlign: TextAlign.center,
             style: Theme.of(context)
                 .textTheme

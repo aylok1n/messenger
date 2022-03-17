@@ -6,7 +6,7 @@ import 'package:messenger/constants.dart';
 class AuthService {
   Future<dynamic> register(String email, String name, String password) async {
     var res = await http.post(
-      Uri.parse('$baseUri/auth/register'),
+      Uri.parse('$kBaseUri/auth/register'),
       body: jsonEncode(<String, String>{
         "email": email,
         "name": name,
@@ -19,7 +19,8 @@ class AuthService {
   Future<dynamic> login(String email, String password) async {
     if (email.isNotEmpty && password.isNotEmpty) {
       var res = await http.post(
-        Uri.parse('$baseUri/auth/login'),
+        Uri.parse('$kBaseUri/auth/login'),
+        headers: {"Content-type": "application/json"},
         body: jsonEncode(<String, String>{
           "email": email,
           "password": password,
