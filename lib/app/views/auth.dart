@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:messenger/constants.dart';
 import 'package:messenger/services/auth.dart';
@@ -20,14 +21,18 @@ class _AuthPageState extends State<AuthPage> {
   Future<void> auth() async {
     if (_email.isNotEmpty && _password.isNotEmpty) {
       var res = await authService.login(_email, _password);
-      print(res);
+      if (kDebugMode) {
+        print(res);
+      }
     }
   }
 
   Future<void> register() async {
     if (_email.isNotEmpty && _password.isNotEmpty) {
       var res = await authService.register(_email, _name, _password);
-      print(res);
+      if (kDebugMode) {
+        print(res);
+      }
     }
   }
 
@@ -82,7 +87,7 @@ class _AuthPageState extends State<AuthPage> {
               textInputAction: TextInputAction.done,
               obscureText: !_showPassword,
               style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText2!.color!,
+                color: Theme.of(context).textTheme.bodyMedium!.color!,
               ),
               decoration: InputDecoration(
                 prefixIcon: const Icon(Icons.password_outlined),
@@ -126,7 +131,7 @@ class _AuthPageState extends State<AuthPage> {
               textInputAction: TextInputAction.next,
               keyboardType: TextInputType.emailAddress,
               style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText2!.color!,
+                color: Theme.of(context).textTheme.bodyMedium!.color!,
               ),
               decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.email_outlined),
@@ -150,7 +155,7 @@ class _AuthPageState extends State<AuthPage> {
               textInputAction: TextInputAction.next,
               keyboardType: TextInputType.name,
               style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText2!.color!,
+                color: Theme.of(context).textTheme.bodyMedium!.color!,
               ),
               decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.people_outline),
@@ -174,7 +179,7 @@ class _AuthPageState extends State<AuthPage> {
               obscureText: !_showPassword,
               textInputAction: TextInputAction.done,
               style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText2!.color!,
+                color: Theme.of(context).textTheme.bodyMedium!.color!,
               ),
               decoration: InputDecoration(
                 prefixIcon: const Icon(Icons.password_outlined),
